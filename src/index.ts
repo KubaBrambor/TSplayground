@@ -6,7 +6,7 @@ function writePrice(product: string, price: number): void {
   console.log(`Cena produktu ${product}: ${price.toFixed(2)} zł`);
 }
 
-let prices = [];
+let prices: number[] = [];
 prices.push(...[100, 75, 25])
 let names: string[] = ["czapka", "rękawiczki", "parasol"];
 
