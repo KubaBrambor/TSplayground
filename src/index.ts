@@ -3,14 +3,14 @@ function calculateTax(amount: number): number {
 }
 
 function writePrice(product: string, price: number): void {
-  console.log(`Cena produktu ${product}: ${price.toFixed(2)} zł`)
+  console.log(`Cena produktu ${product}: ${price.toFixed(2)} zł`);
 }
 
-let emptyArray = [];
-emptyArray.push("one");
-let prices: number[] = [100, 75, 30];
+let prices: number[] = [];
+prices.push(...[100, 75, 25])
 let names: string[] = ["czapka", "rękawiczki", "parasol"];
 
-prices.forEach((price: number, index: number) => {
-  writePrice(names[index], calculateTax(price));
-});
+names.forEach((name: string, index: number) => {
+  const price = prices[index];
+  writePrice(name, calculateTax(price));
+})

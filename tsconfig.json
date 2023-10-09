@@ -7,5 +7,6 @@
     // "noImplicitAny": true,
     "strictNullChecks": true,
     // "noUnusedParameters": true,
+    // "noImplicitReturns": true,
   }
 }
