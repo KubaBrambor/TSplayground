@@ -8,8 +8,9 @@ function writePrice(product: string, price: number): void {
 
 let hat: [string, number] = ["czapka", 100];
 let gloves: [string, number]= ["rękawiczki", 75];
-let products: ([string, number] | boolean)[] = [true, false, hat]
-
+enum IndexNumbers { First = 20, Second = 99 };
+enum Product { czapka = IndexNumbers.First + 1, rękawiczki = 31, parasol = czapka + rękawiczki };
+let products: [Product, number][] = [[Product.czapka, 100], [Product.rękawiczki, 75]]
 hat.forEach((el: string | number) => {
   if (typeof el === "string") {
     console.log(`Ten element to string ${el}`);
@@ -21,10 +22,15 @@ hat.forEach((el: string | number) => {
 // writePrice(hat[0], hat[1]);
 // writePrice(gloves[0], gloves[1]);
 
-products.forEach((prod: [string, number] | boolean) => {
-  if(prod instanceof Array) {
-    writePrice(prod[0], prod[1]);
-  } else {
-    console.log('Its boolean.')
+products.forEach((prod: [Product, number]) => {
+  switch(prod[0]) {
+    case Product.czapka:
+      writePrice('czapka', prod[1]);
+      break;
+    case Product.rękawiczki:
+      writePrice('rękawiczki', prod[1]);
+      break;
   }
 })
+
+console.log(Product.czapka)
