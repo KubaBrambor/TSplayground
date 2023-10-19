@@ -8,5 +8,6 @@
     "strictNullChecks": true,
     // "noUnusedParameters": true,
     // "noImplicitReturns": true,
+    "strict": true,
   }
 }
