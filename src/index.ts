@@ -9,7 +9,7 @@ function writePrice(product: string, price: number): void {
 let hat: [string, number] = ["czapka", 100];
 let gloves: [string, number]= ["rękawiczki", 75];
 enum IndexNumbers { First = 20, Second = 99 };
-const enum Product { czapka = IndexNumbers.First + 1, rękawiczki = 31, parasol = czapka + rękawiczki };
+enum Product { czapka, rękawiczki, parasol };
 let productVal: Product = Product.czapka;
 let products: [Product, number][] = [[Product.czapka, 100], [Product.rękawiczki, 75]]
 hat.forEach((el: string | number) => {
@@ -35,4 +35,37 @@ products.forEach((prod: [Product, number]) => {
 })
 
 console.log(Product.czapka)
-let restrictedVal: 1|2|3 = 4;
+let restrictedVal: 1|2|3 = 3;
+
+function getMixedValue(input: 1): 1;
+function getMixedValue(input: 2|3): "Witaj" | true;
+function getMixedValue(input: 4): Product.czapka;
+function getMixedValue(input: number): 1|"Witaj"|true|Product.czapka {
+  switch (input) {
+    case 1:
+      return 1;
+    case 2:
+      return "Witaj";
+    case 3:
+      return true;
+    case 4:
+      return true;
+  }
+  return true;
+}
+
+function testVal(index: number): number;
+function testVal(index: string): string;
+function testVal(index: number | string): number | string {
+  if(typeof index === 'number') {
+    return "hello"
+  } else {
+    return 20;
+  }
+}
+
+let val: number = testVal(20)
+console.log(val)
+
+type comboType = [string, number | true, 1|2|3];
+let typeVal: comboType = ['cos', true, 2]
