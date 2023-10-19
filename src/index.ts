@@ -35,3 +35,4 @@ products.forEach((prod: [Product, number]) => {
 })
 
 console.log(Product.czapka)
+let restrictedVal: 1|2|3 = 4;
