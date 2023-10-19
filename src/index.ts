@@ -9,7 +9,8 @@ function writePrice(product: string, price: number): void {
 let hat: [string, number] = ["czapka", 100];
 let gloves: [string, number]= ["rękawiczki", 75];
 enum IndexNumbers { First = 20, Second = 99 };
-enum Product { czapka = IndexNumbers.First + 1, rękawiczki = 31, parasol = czapka + rękawiczki };
+const enum Product { czapka = IndexNumbers.First + 1, rękawiczki = 31, parasol = czapka + rękawiczki };
+let productVal: Product = Product.czapka;
 let products: [Product, number][] = [[Product.czapka, 100], [Product.rękawiczki, 75]]
 hat.forEach((el: string | number) => {
   if (typeof el === "string") {
