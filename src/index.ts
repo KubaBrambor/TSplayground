@@ -31,13 +31,43 @@ products.forEach((prod) =>
   )
 );
 
-type Product2 = {
-  name: string;
-  price?: number;
-  hasFeature?: boolean;
-};
+// fitting types (dopasowany typu)
 let hat2 = { name: "czapka", price: 20 };
 let gloves2 = { name: "rekawiczki", price: 30 };
 let umbrella = { name: "parasol", price: 50, waterproof: true };
 
 let products2: { name: string; price?: number }[] = [hat2, gloves2, umbrella];
+
+type User = {
+  id: string;
+  name: string;
+  phone?: number;
+  adress?: boolean;
+};
+
+type Item = {
+  id: number;
+  name: string;
+  quantity: number;
+};
+
+type UnionType = {
+  id: string | number;
+  name: string;
+};
+
+// Below code work after setting "suppressExcessPropertyErrors": true
+// let Bob: User = { name: "Bob", city: "London" };
+
+let user1: User = { id: "user1", name: "Bob" };
+let item1: Item = { id: 1, name: "pencil", quantity: 20 };
+
+let dataItems: (User | Item)[] = [user1, item1];
+
+dataItems.forEach((item) => {
+  if ("quantity" in item) {
+    console.log(`Type Item: ${item.name}: ${item.quantity}`);
+  } else {
+    console.log(`Type User: ${item.name}: ${item.adress}`);
+  }
+});
