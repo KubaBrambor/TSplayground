@@ -30,3 +30,14 @@ products.forEach((prod) =>
     }`
   )
 );
+
+type Product2 = {
+  name: string;
+  price?: number;
+  hasFeature?: boolean;
+};
+let hat2 = { name: "czapka", price: 20 };
+let gloves2 = { name: "rekawiczki", price: 30 };
+let umbrella = { name: "parasol", price: 50, waterproof: true };
+
+let products2: { name: string; price?: number }[] = [hat2, gloves2, umbrella];
