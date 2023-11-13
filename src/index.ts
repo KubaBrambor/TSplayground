@@ -64,8 +64,8 @@ let item1: Item = { id: 1, name: "pencil", quantity: 20 };
 
 let dataItems: (User | Item)[] = [user1, item1];
 
-function isItem(testObj: any): testObj is Item {
-  return testObj.quantity !== undefined;
+function isItem(testObj: User | Item): testObj is Item {
+  return (testObj as Item).quantity !== undefined;
 }
 
 dataItems.forEach((item) => {
