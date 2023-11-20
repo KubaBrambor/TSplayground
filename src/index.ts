@@ -75,3 +75,24 @@ dataItems.forEach((item) => {
     console.log(`Type User: ${item.name}: ${item.adress}`);
   }
 });
+
+interface Person {
+  name: string;
+  surname: string;
+}
+
+interface Employee {
+  company: string;
+  depot: string;
+  hiredYear: number;
+}
+
+let bob = {
+  name: "Bob",
+  surname: "Kowalsky",
+  company: "Company Co.",
+  depot: "L.A.",
+  hiredYear: 2022,
+};
+
+let employees: (Person & Employee)[] = [bob];
